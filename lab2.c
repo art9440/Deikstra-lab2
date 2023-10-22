@@ -26,13 +26,16 @@ void tailReverse(char *str, int j){ //tail reversal
         str[strlen(str) - 1 - k] = temp;
     }
 }
-int checkForDecrission(char * str){
-    for (int j = strlen(str) - 1; j > 0; j--)
+
+
+int checkForDecrission(char * str){            //checking for the possibility of using
+    for (int j = strlen(str) - 1; j > 0; j--)  //the Dijkstra algorithm
         if (str[j - 1] < str[j]) {
             return j;
         }
     return 0;
 }
+
 
 void Deikstra(char *str, int n){       //Enumeration of permutations according
     for (int i = 0; i < n; i++) {      // to Dijkstra 's algorithm
