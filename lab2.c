@@ -3,9 +3,9 @@
 #include <ctype.h>
 
 
-void minInTail(char *str, int j, char change){   //Finding the minimum in the tail and
-    char minn = 'A', temp;                       //change with current number
-    int minindex;
+void minInTail(char *str, int j, char change){   //Finding the minimum in the maximum
+    char minn = 'A', temp;                       //in the tail and
+    int minindex;                                //change with current number
     for (int i = j; i < strlen(str); i++)
         if (str[i] > change && str[i] < minn) {
             minn = str[i];
