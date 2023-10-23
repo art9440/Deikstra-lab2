@@ -4,14 +4,13 @@
 
 
 void minInTail(char *str, int j, char change){   //Finding the minimum in the tail and
-    char minn = 'A';                             //change with current number
+    char minn = 'A', temp;                       //change with current number
     int minindex;
     for (int i = j; i < strlen(str); i++)
         if (str[i] > change && str[i] < minn) {
             minn = str[i];
             minindex = i;
         }
-    char temp;
     temp = str[j - 1];
     str[j - 1] = minn;
     str[minindex] = temp;
@@ -53,7 +52,8 @@ void Deikstra(char *str, int n){       //Enumeration of permutations according
 int CheckforErrors(char *str){            //Check input for errors
     for (int i = 0;i < strlen(str); i++)
         if ((str[i] < "0" && str[i] > "9") ||
-                (strchr(str,str[i]) - str != i) || isdigit(str[i]) == 0)
+                (strchr(str,str[i]) - str != i)
+                || isdigit(str[i]) == 0)
             return 0;
     return 1;
 }
@@ -64,10 +64,14 @@ int main(){
     int n;
     gets(str);
     scanf("%d", &n);
+
     if (CheckforErrors(str) == 0){
         printf("bad input");
         return 0;
     }
+
     Deikstra(str, n);
+
+
     return 0;
 }
